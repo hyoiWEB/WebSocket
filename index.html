@@ -1,13 +1,17 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>PoseNet Demos</title>
+    <script>
+      let HOST = location.origin.replace(/^http/, 'ws')
+      let ws = new WebSocket(HOST);
+      let el;
+
+      ws.onmessage = (event) => {
+        el = document.getElementById('server-time');
+        el.innerHTML = 'Server time: ' + event.data;
+      };
+    </script>
   </head>
   <body>
-    <h1>PoseNet Demos</h1>
-    <ul>
-      <li><a href='camera.html'>Pose Estimation - Camera feed demo</a></li>
-      <li><a href='coco.html'>Pose Estimation - Image demo</a></li>
-    </ul>
+    <p id="server-time"></p>
   </body>
 </html>
