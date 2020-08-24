@@ -27,3 +27,6 @@ wss.on('connection',function(ws){
       });
 
   });
+
+  console.log = function (log) {
+  document.getElementById('console_log').innerHTML += log + "<br>"};
